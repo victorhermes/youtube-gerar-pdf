@@ -8,8 +8,7 @@ const names = [
   { filename: "Marcos" },
   { filename: "Victor" },
   { filename: "Jorge" },
-  { filename: "Lucas" },
-  { filename: "Paulo" }
+  { filename: "Lucas" }
 ];
 
 router.post("/", (req, res) => {
