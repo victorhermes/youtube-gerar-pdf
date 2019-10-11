@@ -4,11 +4,12 @@ var archiver = require("archiver");
 const router = express.Router();
 
 const names = [
-  { filename: "John" },
-  { filename: "Jane" },
+  { filename: "Luiz" },
+  { filename: "Marcos" },
   { filename: "Victor" },
-  { filename: "Joao" },
-  { filename: "Jorge" }
+  { filename: "Jorge" },
+  { filename: "Jorge" },
+  { filename: "Paulo" }
 ];
 
 router.post("/", (req, res) => {
