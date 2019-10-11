@@ -15,3 +15,7 @@ input {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+input:hover {
+  background: #00000013;
+}
