@@ -8,7 +8,7 @@ const names = [
   { filename: "Marcos" },
   { filename: "Victor" },
   { filename: "Jorge" },
-  { filename: "Jorge" },
+  { filename: "Lucas" },
   { filename: "Paulo" }
 ];
 
