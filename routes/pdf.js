@@ -4,11 +4,11 @@ const router = express.Router();
 const PDFDocument = require("pdfkit");
 
 const students = [
-  { filename: "John" },
-  { filename: "Jane" },
+  { filename: "Luiz" },
+  { filename: "Marcos" },
   { filename: "Victor" },
-  { filename: "Joao" },
   { filename: "Jorge" },
+  { filename: "Lucas" },
   { filename: "Paulo" }
 ];
 
