@@ -3,7 +3,7 @@ const fs = require("fs");
 const router = express.Router();
 const PDFDocument = require("pdfkit");
 
-const students = [
+const names = [
   { filename: "Luiz" },
   { filename: "Marcos" },
   { filename: "Victor" },
@@ -14,12 +14,12 @@ const students = [
 
 router.post("/", (req, res) => {
   try {
-    students.map(s => {
+    names.map(n => {
       const doc = new PDFDocument({
         layout: "landscape"
       });
 
-      const pdfStream = fs.createWriteStream(`public/pdf/${s.filename}.pdf`);
+      const pdfStream = fs.createWriteStream(`public/pdf/${n.filename}.pdf`);
 
       // Stripping special characters
       //filename = encodeURIComponent(filename) + '.pdf'
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
       // If you use 'inline' here it will automatically open the PDF
       //res.setHeader('Content-disposition', 'inline; filename="' + filename + '"')
       //res.setHeader('Content-type', 'application/pdf')
-      doc.fontSize(40).text(s.filename, { align: "center" }, 315);
+      doc.fontSize(40).text(n.filename, { align: "center" }, 315);
       doc.image("public/images/cert.png", 10, 35, { width: 770 });
       doc.pipe(pdfStream);
       doc.end();
