@@ -1,0 +1,10 @@
+extends layout
+block content
+  .row
+    .col-md-8
+      h1="Gerar PDFs"
+      form.form-horizontal.well(method="post", action="/pdf")
+            input.btn.btn-default(type="submit", value="Criar PDF")
+      
+      form.form-horizontal.well(method="post", action="/download")
+            input.btn.btn-default(type="submit", value="Baixar PDF")
