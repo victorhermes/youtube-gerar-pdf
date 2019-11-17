@@ -34,4 +34,8 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
+app.listen(3001, function() {
+  console.log("Gerador rodando na porta 3001!");
+});
+
 module.exports = app;

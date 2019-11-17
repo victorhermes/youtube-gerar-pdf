@@ -12,7 +12,7 @@ const names = [
   { filename: "Paulo" }
 ];
 
-router.post("/", (req, res) => {
+router.post("/", res => {
   /*var output = fs.createWriteStream(
     `public/zipFiles/certificate_${Math.random()}.zip`
   );*/
