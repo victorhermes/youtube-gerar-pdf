@@ -13,26 +13,30 @@ const names = [
 ];
 
 router.post("/", (req, res) => {
-  var archive = archiver("zip", {
-    zlib: { level: 9 }
-  });
-
-  archive.on("error", function(err) {
-    throw err;
-  });
-
-  // archive.pipe(res.attachment("certificados.zip"));
-  archive.pipe(
-    fs.createWriteStream(`public/certificados/certificado_${Math.random()}.zip`)
-  );
-
-  names.map(n => {
-    archive.file(`public/pdf/${n.filename}.pdf`, {
-      name: `${n.filename}.pdf`
+  try {
+    var archive = archiver("zip", {
+      zlib: { level: 9 }
     });
-  });
 
-  archive.finalize();
+    // archive.pipe(res.attachment("certificados.zip"));
+    archive.pipe(
+      fs.createWriteStream(
+        `public/certificados/certificado_${Math.random()}.zip`
+      )
+    );
+
+    names.map(n => {
+      archive.file(`public/pdf/${n.filename}.pdf`, {
+        name: `${n.filename}.pdf`
+      });
+    });
+
+    archive.finalize();
+  } catch (err) {
+    console.error("ERROR: " + err.message);
+  } finally {
+    res.redirect("/");
+  }
 });
 
 module.exports = router;
