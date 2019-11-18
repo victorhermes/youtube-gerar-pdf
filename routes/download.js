@@ -12,11 +12,7 @@ const names = [
   { filename: "Paulo" }
 ];
 
-router.post("/", res => {
-  /*var output = fs.createWriteStream(
-    `public/zipFiles/certificate_${Math.random()}.zip`
-  );*/
-
+router.post("/", (req, res) => {
   var archive = archiver("zip", {
     zlib: { level: 9 }
   });
@@ -25,8 +21,10 @@ router.post("/", res => {
     throw err;
   });
 
-  // archive.pipe(output) baixa para uma pasta dentro do app
-  archive.pipe(res.attachment("certificate.zip"));
+  // archive.pipe(res.attachment("certificados.zip"));
+  archive.pipe(
+    fs.createWriteStream(`public/certificados/certificado_${Math.random()}.zip`)
+  );
 
   names.map(n => {
     archive.file(`public/pdf/${n.filename}.pdf`, {
